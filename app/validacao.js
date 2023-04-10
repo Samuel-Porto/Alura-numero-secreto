@@ -2,8 +2,19 @@ function verificaChuteValor(chute) {
     const numero = +chute
 
     if (Number.isNaN(numero)) {
-        elementChute.innerHTML += '<div>valor inválido: Isso não é um número</div>'
-        return
+        
+        if (chute.toUpperCase() === "GAME OVER") {
+
+            document.body.innerHTML =
+                `
+                <h2>Fim de jogo</h2>
+                <button id="jogar-novamente" class="botao-jogar" >Reiniciar <i class="fa-solid fa-rotate-right"></i></button>
+                `
+                document.body.style.background = "black"
+        } else {
+            elementChute.innerHTML += '<div>valor inválido: Isso não é um número</div>'
+            return
+        }
 
     }
 
